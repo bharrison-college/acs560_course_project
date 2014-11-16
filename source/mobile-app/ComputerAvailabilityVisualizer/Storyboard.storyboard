@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C6y-b6-RxC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Scene View Controller-->
+        <scene sceneID="ig6-R7-RuT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2D9-S7-ztS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="C6y-b6-RxC" customClass="CAVSceneViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O9h-x9-99J"/>
+                        <viewControllerLayoutGuide type="bottom" id="rUn-pF-gAx"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="Ggt-kx-0RW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCt-O5-lkU">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                </variation>
+                            </glkView>
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuX-DT-FYv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                </variation>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-EK-UbK">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.056712829520000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                </variation>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uCt-O5-lkU"/>
+                                <exclude reference="w7i-EK-UbK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uCt-O5-lkU"/>
+                                <include reference="xuX-DT-FYv"/>
+                                <include reference="w7i-EK-UbK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="interactivityView" destination="xuX-DT-FYv" id="B0f-mn-CVH"/>
+                        <outlet property="mapView" destination="w7i-EK-UbK" id="7Bc-er-UIs"/>
+                        <outlet property="sceneView" destination="uCt-O5-lkU" id="gRC-jH-ahn"/>
+                        <segue destination="gPB-0u-wHM" kind="show" identifier="showDetails" id="ETe-aM-kSb"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="592.5" y="485.25"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0aG-26-47b">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ez-c1-rra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="gPB-0u-wHM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PVT-iV-dV0"/>
+                        <viewControllerLayoutGuide type="bottom" id="wOo-9o-hwv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mgu-1w-g3h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1720.5" y="485.25"/>
+        </scene>
+    </scenes>
+</document>
