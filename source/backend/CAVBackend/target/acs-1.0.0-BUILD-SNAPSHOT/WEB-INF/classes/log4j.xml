@@ -11,8 +11,9 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="edu.ipfw.acs">
+	<logger name="edu.ipfw.acs.controller">
 		<level value="info" />
+		<appender-ref ref="console" /> 
 	</logger>
 	
 	<!-- 3rdparty Loggers -->

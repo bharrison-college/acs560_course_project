@@ -8,42 +8,37 @@
    http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
 	<context:annotation-config/>
-	<context:component-scan base-package="edu.ipfw.acs" />
-
- 	<!--
- 	Server JNDI Configuration
-	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName">
-			<value>java:comp/env/jdbc/HiberDB</value>
-		</property>
-	</bean>
-	-->
+	<context:component-scan base-package="edu.ipfw.acs.model" />
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5432/cav"/>
-        <property name="username" value=""/>
-        <property name="password" value=""/>
+        <property name="username" value="cav"/>
+        <property name="password" value="acs560"/>
     </bean>
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="edu.ipfw.acs"/>
+		<property name="packagesToScan" value="edu.ipfw.acs.model"/>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="dialect">PostgreSQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
 	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-    	<property name="sessionFactory" ref="sessionFactory"/>
+	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<constructor-arg ref="sessionFactory" />
 	</bean>
 
-	<bean id="cavBackendWebController" class="edu.ipfw.acs.CAVBackendWebServiceController">
-		<property name="transactionManager" ref="transactionManager" />
+	<bean id="cavDataSourceManager" class="edu.ipfw.acs.model.CAVDataSourceManager">
+		<property name="transactionManager" ref="hibernateTransactionManager" />
+	</bean>
+
+	<bean id="cavBackendWebServiceController" class="edu.ipfw.acs.controller.CAVBackendWebServiceController">
+		<property name="dataSourceManager" ref="cavDataSourceManager" />
 	</bean>
 	
 </beans>

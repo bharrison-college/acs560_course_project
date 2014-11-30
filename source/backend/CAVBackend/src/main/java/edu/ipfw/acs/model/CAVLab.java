@@ -8,37 +8,48 @@ public class CAVLab {
 	
 	@Id
 	@Column(name="id")
-	String id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String id;
+	
+	@Column(name="labStatsCode")
+	private String labStatsCode;
 	
 	@Column(name="longitude")
-	String longitude;
+	private String longitude;
 	
 	@Column(name="latitude")
-	String latitude;
+	private String latitude;
 	
 	@Column(name="building")
-	String building;
+	private String building;
 	
-	@Column(name="previewDescription")
-	String previewDescription;
-	
-	public String getPreviewDescription() {
-		return previewDescription;
-	}
-	public void setPreviewDescription(String previewDescription) {
-		this.previewDescription = previewDescription;
-	}
+	@Column(name="room")
+	private String room;
+
 	@Column(name="detailedDescription")
-	String detailedDescription;
+	private String detailedDescription;
 	
 	@Column(name="availableCapacity")
-	String availableCapacity;
+	private String availableCapacity;
 	
 	@Column(name="inUse")
-	String inUse;
+	private String inUse;
 	
 	@Column(name="off")
-	String off;
+	private String off;
+	
+	public String getRoom() {
+		return room;
+	}
+	public void setRoom(String room) {
+		this.room = room;
+	}
+	public String getLabStatsCode() {
+		return labStatsCode;
+	}
+	public void setLabStatsCode(String labStatsCode) {
+		this.labStatsCode = labStatsCode;
+	}
 	
 	public String getLongitude() {
 		return longitude;
