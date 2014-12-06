@@ -7,67 +7,89 @@
         <!--Scene View Controller-->
         <scene sceneID="ig6-R7-RuT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2D9-S7-ztS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="C6y-b6-RxC" customClass="CAVSceneViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O9h-x9-99J"/>
                         <viewControllerLayoutGuide type="bottom" id="rUn-pF-gAx"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="Ggt-kx-0RW">
+                    <view key="view" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ggt-kx-0RW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCt-O5-lkU">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
-                                </variation>
-                            </glkView>
-                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuX-DT-FYv">
+                            <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuX-DT-FYv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-EK-UbK">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JpP-9i-Jch">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="1" green="0.056712829520000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
-                                </variation>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JpP-9i-Jch" secondAttribute="width" id="576-kt-srA"/>
+                            <constraint firstAttribute="centerX" secondItem="JpP-9i-Jch" secondAttribute="centerX" id="TNd-nS-Y4X"/>
+                            <constraint firstAttribute="centerY" secondItem="JpP-9i-Jch" secondAttribute="centerY" id="Vuw-Ef-V0P"/>
+                            <constraint firstItem="xuX-DT-FYv" firstAttribute="height" secondItem="Ggt-kx-0RW" secondAttribute="height" id="X34-Jv-7Du"/>
+                            <constraint firstItem="xuX-DT-FYv" firstAttribute="width" secondItem="Ggt-kx-0RW" secondAttribute="width" id="cYM-CA-NfV"/>
+                            <constraint firstAttribute="height" secondItem="JpP-9i-Jch" secondAttribute="height" id="mpt-TS-4MW"/>
+                            <constraint firstAttribute="centerY" secondItem="xuX-DT-FYv" secondAttribute="centerY" id="sMB-Qc-8AK"/>
+                            <constraint firstAttribute="centerX" secondItem="xuX-DT-FYv" secondAttribute="centerX" id="vdw-Cz-Bz2"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="uCt-O5-lkU"/>
-                                <exclude reference="w7i-EK-UbK"/>
+                                <exclude reference="JpP-9i-Jch"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="576-kt-srA"/>
+                                <exclude reference="TNd-nS-Y4X"/>
+                                <exclude reference="Vuw-Ef-V0P"/>
+                                <exclude reference="mpt-TS-4MW"/>
+                                <exclude reference="X34-Jv-7Du"/>
+                                <exclude reference="cYM-CA-NfV"/>
+                                <exclude reference="sMB-Qc-8AK"/>
+                                <exclude reference="vdw-Cz-Bz2"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="uCt-O5-lkU"/>
                                 <include reference="xuX-DT-FYv"/>
-                                <include reference="w7i-EK-UbK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="JpP-9i-Jch"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="576-kt-srA"/>
+                                <include reference="TNd-nS-Y4X"/>
+                                <include reference="Vuw-Ef-V0P"/>
+                                <include reference="mpt-TS-4MW"/>
+                                <include reference="X34-Jv-7Du"/>
+                                <include reference="cYM-CA-NfV"/>
+                                <include reference="sMB-Qc-8AK"/>
+                                <include reference="vdw-Cz-Bz2"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="interactivityView" destination="xuX-DT-FYv" id="B0f-mn-CVH"/>
-                        <outlet property="mapView" destination="w7i-EK-UbK" id="7Bc-er-UIs"/>
-                        <outlet property="sceneView" destination="uCt-O5-lkU" id="gRC-jH-ahn"/>
+                        <outlet property="mapView" destination="JpP-9i-Jch" id="AHP-MR-TrT"/>
                         <segue destination="gPB-0u-wHM" kind="show" identifier="showDetails" id="ETe-aM-kSb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2D9-S7-ztS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="592.5" y="485.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0aG-26-47b">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0ez-c1-rra" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gPB-0u-wHM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PVT-iV-dV0"/>
@@ -79,6 +101,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ez-c1-rra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1720.5" y="485.25"/>
         </scene>

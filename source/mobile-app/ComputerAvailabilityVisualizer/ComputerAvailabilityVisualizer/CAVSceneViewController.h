@@ -11,6 +11,7 @@
 #import <GLKit/GLKit.h>
 #import "ComputerAvailabilityVisualizer-swift.h"
 #import "CAVInteractionLayerViewController.h"
+#import "CAVDownloadManager.h"
 
 @interface CAVSceneViewController : UIViewController<MKMapViewDelegate>
 
