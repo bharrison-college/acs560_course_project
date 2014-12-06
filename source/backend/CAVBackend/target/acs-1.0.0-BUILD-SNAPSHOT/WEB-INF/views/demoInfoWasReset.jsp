@@ -1,0 +1,1 @@
+Demonstration lab info was successfully reset

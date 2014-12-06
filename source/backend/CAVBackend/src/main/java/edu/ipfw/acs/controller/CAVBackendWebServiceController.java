@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import org.hibernate.Query;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -31,8 +29,6 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.databinding.ADBException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import edu.ipfw.acs.model.*;
 import edu.ipfw.acs.services.soap.GetCurrentStats;
@@ -40,7 +36,6 @@ import edu.ipfw.acs.services.soap.GetCurrentStatsResponse;
 import edu.ipfw.acs.services.soap.StatisticsStub;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
 
 /**
  * Handles requests for the application home page.
@@ -56,63 +51,6 @@ public class CAVBackendWebServiceController {
 	}
 
 	private static final Logger logger = LoggerFactory.getLogger(CAVBackendWebServiceController.class);
-	
-	@RequestMapping(value = "/resetLabInfo", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		
-		/* Init Lab Data */
-		CAVLab lab0 = new CAVLab();
-		lab0.setLabStatsCode("WU_221");
-		lab0.setBuilding("Walb");
-		lab0.setRoom("221");
-		lab0.setDetailedDescription("Walb is located across from Helmke Library and also from the Rhinehart Music Center. This computer lab is on the second floor.");
-		lab0.setLatitude("41.118003");
-		lab0.setLongitude("-85.108581");
-		
-		CAVLab lab1 = new CAVLab();
-		lab1.setLabStatsCode("VA_205");
-		lab1.setBuilding("Visual Arts");
-		lab1.setRoom("205");
-		lab1.setDetailedDescription("Visual Arts is located across from the Rhinehart Music Center. This computer lab is on the second floor.");
-		lab1.setLatitude("41.120709");
-		lab1.setLongitude("-85.109433");
-		
-		CAVLab lab2 = new CAVLab();
-		lab2.setLabStatsCode("LA 42");
-		lab2.setBuilding("Libral Arts");
-		lab2.setRoom("42");
-		lab2.setDetailedDescription("Libral Arts is located across from the Science building and also from Helmke Library. This computer lab is on the first floor.");
-		lab2.setLatitude("41.117333");
-		lab2.setLongitude("-85.110107");
-		
-		HibernateTransactionManager transactionManager = this.dataSourceManager.getTransactionManager();
-		Session session = transactionManager.getSessionFactory().openSession();
-
-		Transaction trans = null;
-		try {
-			trans = session.beginTransaction();
-			Query query = (Query) session.createQuery("delete from CAVLab");
-			query.executeUpdate();
-			trans.commit();
-			
-			trans = session.beginTransaction();
-			session.saveOrUpdate(lab0);
-			session.saveOrUpdate(lab1);
-			session.saveOrUpdate(lab2);
-			session.flush();
-			trans.commit();
-		}
-		catch (Exception e) {
-			  if (trans!=null){
-				  trans.rollback();
-			  }
-			  	e.printStackTrace(); 
-			}finally {
-			   session.close();
-			}
-	
-		return "getLabInformation";
-	}
 
 	public CAVDataSourceManager getDataSourceManager() {
 		return dataSourceManager;
@@ -127,8 +65,7 @@ public class CAVBackendWebServiceController {
 	 */
 	@RequestMapping(value = "/getLabInformation", method = RequestMethod.GET)
 	public ModelAndView getLabInformation(Locale locale, Model model) {
-		ArrayList<CAVLab>cavLabs = this.getLabStatsInformation();
-		
+		ArrayList<CAVLab>cavLabs = this.processCAVLabInformation(this.getLabStatsInformation());
 		ModelAndView modelAndView = new ModelAndView("getLabInformation","cavLabs", cavLabs);
 		
 		return modelAndView;
@@ -149,26 +86,8 @@ public class CAVBackendWebServiceController {
 						OMElement omElement = new StAXOMBuilder(xmlStreamReader).getDocumentElement();
 						String xml = omElement.toStringWithConsume();
 						
-						ArrayList<LabStatsXMLNode> labStatsXMLNode = this.processXML(xml);
-						
-						HibernateTransactionManager transactionManager = this.dataSourceManager.getTransactionManager();
-						Session session = transactionManager.getSessionFactory().openSession();
-						
-						List<CAVLab> cavLabs = null;
-						Transaction trans = null;
-					    try {      
-					    	Query query = (Query) session.createQuery("from CAVLab");
-					        cavLabs = query.list();
-					    } catch (Exception e) {
-							  if (trans!=null){
-								  trans.rollback();
-							  }
-							  
-							  	e.printStackTrace(); 
-							}finally {
-							   session.close();
-							}
-					    
+						ArrayList<LabStatsXMLNode> labStatsXMLNode = this.processXML(xml);		
+						List<CAVLab> cavLabs = this.dataSourceManager.getAllCAVLabs();
 					    for(CAVLab cavLab : cavLabs){
 					    	for(LabStatsXMLNode node : labStatsXMLNode){
 					    		if(node.groupName.toLowerCase().trim().equals(cavLab.getLabStatsCode().toLowerCase().trim())){
@@ -266,6 +185,26 @@ public class CAVBackendWebServiceController {
 		}
 		
 		return labStatsXMLNodeList;
+	}
+	
+	private ArrayList<CAVLab> processCAVLabInformation(ArrayList<CAVLab>cavLabs){
+		ArrayList<CAVLab>validCAVLabs = new ArrayList<CAVLab>();
+		for(CAVLab cavLab : cavLabs){
+			if(cavLab.getAvailableCapacity() != null && !cavLab.getAvailableCapacity().trim().equals("") ||
+					cavLab.getBuilding() != null && !cavLab.getBuilding().trim().equals("") || 
+					cavLab.getLongitude() != null && !cavLab.getLongitude().trim().equals("") || 
+					cavLab.getLatitude() != null && !cavLab.getLatitude().trim().equals("") || 
+					cavLab.getLabStatsCode() != null && !cavLab.getLabStatsCode().trim().equals("") || 
+					cavLab.getRoom() != null && !cavLab.getRoom().trim().equals("") || 
+					cavLab.getDetailedDescription() != null && !cavLab.getDetailedDescription().trim().equals("") || 
+					cavLab.getAvailableCapacity() != null && !cavLab.getAvailableCapacity().trim().equals("") || 
+					cavLab.getInUse() != null && !cavLab.getInUse().trim().equals("") || 
+					cavLab.getOff() != null && !cavLab.getOff().equals("")){
+				validCAVLabs.add(cavLab);
+			}
+		}
+		
+		return validCAVLabs;
 	}
 	
 	private ArrayList<CAVLab> getLabInformationFromDataSource(){
