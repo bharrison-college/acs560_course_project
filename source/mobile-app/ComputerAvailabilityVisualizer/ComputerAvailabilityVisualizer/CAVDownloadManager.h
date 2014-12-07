@@ -12,6 +12,8 @@
 #import "CAVParticle.h"
 
 @interface CAVDownloadManager : UIViewController
+@property (atomic, strong)NSMutableArray *labInfoList;
+
 + (id)getSharedDownloadManager;
-- (NSMutableArray *)retrieveLabInformation;
+- (void)updateLabInformation;
 @end

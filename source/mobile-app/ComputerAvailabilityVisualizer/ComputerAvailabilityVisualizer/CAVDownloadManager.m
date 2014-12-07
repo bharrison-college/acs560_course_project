@@ -28,12 +28,13 @@ static CAVDownloadManager *cavSharedDownloadManager =nil;
         if(!cavSharedDownloadManager)
         {
             cavSharedDownloadManager= [[CAVDownloadManager alloc]init];
+            cavSharedDownloadManager.labInfoList = [[NSMutableArray alloc]init];
         }
     }
     return cavSharedDownloadManager;
 }
 
-- (NSMutableArray *)retrieveLabInformation{
+- (void)updateLabInformation{
     NSDictionary *cavInformation = [NSDictionary dictionaryWithContentsOfURL:
                                       [NSURL URLWithString:@"http://emerald.ipfw.edu:8080/cav-1.0.0/getLabInformation"]];
 
@@ -55,7 +56,7 @@ static CAVDownloadManager *cavSharedDownloadManager =nil;
         /* Error occurred */
     }
     
-    NSMutableArray *labInfoList = [[NSMutableArray alloc] init];
+    self.labInfoList = [[NSMutableArray alloc] init];
     if(cavInformation && labStatsCodes && [labStatsCodes count] > 0){
         NSArray *inUses = [cavInformation objectForKey:@"inUses"];
         NSArray *latitudes = [cavInformation objectForKey:@"latitudes"];
@@ -92,7 +93,7 @@ static CAVDownloadManager *cavSharedDownloadManager =nil;
             lab.labStatsCode = labStatsCodes[c];
             lab.numAvailCapacity = availableCapacities[c];
             
-            [labInfoList addObject:lab];
+            [self.labInfoList addObject:lab];
         }
         
         for(CAVLab *currentLab in currentLabs){
@@ -117,11 +118,9 @@ static CAVDownloadManager *cavSharedDownloadManager =nil;
     }
     else{
         if(currentLabs && [currentLabs count] > 0){
-            [labInfoList addObjectsFromArray:currentLabs];
+            [self.labInfoList addObjectsFromArray:currentLabs];
         }
     }
-    
-    return labInfoList;
 }
 
 - (void)didReceiveMemoryWarning {

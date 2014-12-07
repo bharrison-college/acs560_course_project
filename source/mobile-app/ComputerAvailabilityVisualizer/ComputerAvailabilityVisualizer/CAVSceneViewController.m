@@ -34,7 +34,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     CAVDownloadManager *downloadManager = [CAVDownloadManager getSharedDownloadManager];
-    [downloadManager retrieveLabInformation];
+    [downloadManager updateLabInformation];
 }
 
 - (void)didReceiveMemoryWarning {

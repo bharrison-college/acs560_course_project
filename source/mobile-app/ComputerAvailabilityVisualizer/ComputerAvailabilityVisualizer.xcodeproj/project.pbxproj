@@ -31,6 +31,7 @@
 		0662CB711A34A25A0052CDFC /* ZSPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB701A34A25A0052CDFC /* ZSPinAnnotation.m */; };
 		0662CB731A34A4090052CDFC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB721A34A4090052CDFC /* QuartzCore.framework */; };
 		0662CB751A34A4130052CDFC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB741A34A4130052CDFC /* CoreImage.framework */; };
+		0662CB781A3507790052CDFC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB771A3507790052CDFC /* Reachability.m */; };
 		06A099B81A06CBE1008E03C7 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */; };
 		06A099BC1A06CC3C008E03C7 /* CAVMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */; };
 		06A099BE1A06CC8B008E03C7 /* CAVLabAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */; };
@@ -94,6 +95,8 @@
 		0662CB701A34A25A0052CDFC /* ZSPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSPinAnnotation.m; sourceTree = "<group>"; };
 		0662CB721A34A4090052CDFC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0662CB741A34A4130052CDFC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		0662CB761A3507790052CDFC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0662CB771A3507790052CDFC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		06A099BA1A06CC3C008E03C7 /* ComputerAvailabilityVisualizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerAvailabilityVisualizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVMapViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */,
 				06A099C71A06CD03008E03C7 /* CAVSharedResources.h */,
 				06A099C81A06CD03008E03C7 /* CAVSharedResources.m */,
+				0662CB761A3507790052CDFC /* Reachability.h */,
+				0662CB771A3507790052CDFC /* Reachability.m */,
 				06A099CA1A06CD1F008E03C7 /* CAVSharedAlertManager.h */,
 				06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */,
 				06A099CD1A06CD41008E03C7 /* CAVSceneViewController.h */,
@@ -389,6 +394,7 @@
 				0662CACC1A339A7B0052CDFC /* CAVStoreManager.m in Sources */,
 				06A099BE1A06CC8B008E03C7 /* CAVLabAnnotationView.swift in Sources */,
 				0662CAC61A3382350052CDFC /* CAVDownloadManager.m in Sources */,
+				0662CB781A3507790052CDFC /* Reachability.m in Sources */,
 				06A099C91A06CD03008E03C7 /* CAVSharedResources.m in Sources */,
 				0662CB041A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld in Sources */,
 				063223BD1A06C563003EDF35 /* AppDelegate.m in Sources */,
