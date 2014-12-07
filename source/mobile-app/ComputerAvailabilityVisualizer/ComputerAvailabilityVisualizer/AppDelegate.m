@@ -23,11 +23,6 @@
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     
-    CAVSharedResources *sharedResources = [CAVSharedResources getSharedResources];
-    sharedResources.mainNavController = (UINavigationController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-    
-    
-    
     return YES;
 }
 

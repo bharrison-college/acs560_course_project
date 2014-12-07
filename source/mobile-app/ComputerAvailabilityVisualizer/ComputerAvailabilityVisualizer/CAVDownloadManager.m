@@ -36,64 +36,90 @@ static CAVDownloadManager *cavSharedDownloadManager =nil;
 - (NSMutableArray *)retrieveLabInformation{
     NSDictionary *cavInformation = [NSDictionary dictionaryWithContentsOfURL:
                                       [NSURL URLWithString:@"http://emerald.ipfw.edu:8080/cav-1.0.0/getLabInformation"]];
-    
-    NSArray *inUses = [cavInformation objectForKey:@"inUses"];
-    NSArray *latitudes = [cavInformation objectForKey:@"latitudes"];
-    NSArray *longitudes = [cavInformation objectForKey:@"longitudes"];
-    NSArray *offs = [cavInformation objectForKey:@"offs"];
-    NSArray *buildings = [cavInformation objectForKey:@"buildings"];
-    NSArray *detailedDescriptions = [cavInformation objectForKey:@"detailedDescriptions"];
-    NSArray *rooms = [cavInformation objectForKey:@"rooms"];
-    NSArray *labStatsCodes = [cavInformation objectForKey:@"labStatsCodes"];
-    NSArray *availableCapacities = [cavInformation objectForKey:@"availableCapacities"];
-   
-    CAVStoreManager *cavStoreManager = [CAVStoreManager getSharedStoreManager];
-    NSMutableArray *labInfoList = [[NSMutableArray alloc] init];
-    NSInteger c = 0;
-    NSInteger size = [labStatsCodes count];
-    
-    NSError *error;
-    for(; c < size; c++){
-        CAVLab *lab = [NSEntityDescription insertNewObjectForEntityForName:@"CAVLab" inManagedObjectContext:cavStoreManager.managedObjectContext];
-        lab.numInUse = inUses[c];
-        lab.latitude = latitudes[c];
-        lab.longitude = longitudes[c];
-        lab.numOff = offs[c];
-        lab.building = buildings[c];
-        lab.detailDesc = detailedDescriptions[c];
-        lab.room = rooms[c];
-        lab.labStatsCode = labStatsCodes[c];
-        lab.numAvailCapacity = availableCapacities[c];
-        
-        [labInfoList addObject:lab];
+
+    NSArray *labStatsCodes = nil;
+    if(cavInformation){
+        labStatsCodes = [cavInformation objectForKey:@"labStatsCodes"];
     }
     
-    if([labInfoList count] > 0){
+    CAVStoreManager *cavStoreManager = [CAVStoreManager getSharedStoreManager];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"CAVLab" inManagedObjectContext:cavStoreManager.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error1;
+    NSArray *currentLabs = [cavStoreManager.managedObjectContext executeFetchRequest:request error:&error1];
+    if(!labs){
+        /* Error occurred */
+    }
+    
+    NSMutableArray *labInfoList = [[NSMutableArray alloc] init];
+    if(cavInformation && labStatsCodes && [labStatsCodes count] > 0){
+        NSArray *inUses = [cavInformation objectForKey:@"inUses"];
+        NSArray *latitudes = [cavInformation objectForKey:@"latitudes"];
+        NSArray *longitudes = [cavInformation objectForKey:@"longitudes"];
+        NSArray *offs = [cavInformation objectForKey:@"offs"];
+        NSArray *buildings = [cavInformation objectForKey:@"buildings"];
+        NSArray *detailedDescriptions = [cavInformation objectForKey:@"detailedDescriptions"];
+        NSArray *rooms = [cavInformation objectForKey:@"rooms"];
+        NSArray *availableCapacities = [cavInformation objectForKey:@"availableCapacities"];
+        
+        NSInteger c = 0;
+        NSInteger size = [labStatsCodes count];
+        for(; c < size; c++){
+            
+            CAVLab *lab = nil;
+            for(CAVLab *currentLab in currentLabs){
+                if([labStatsCodes[c] isEqualToString:currentLab.labStatsCode]){
+                    lab = currentLab;
+                    break;
+                }
+            }
+            
+            if(!lab){
+                lab = [NSEntityDescription insertNewObjectForEntityForName:@"CAVLab" inManagedObjectContext:cavStoreManager.managedObjectContext];
+            }
+            
+            lab.numInUse = inUses[c];
+            lab.latitude = latitudes[c];
+            lab.longitude = longitudes[c];
+            lab.numOff = offs[c];
+            lab.building = buildings[c];
+            lab.detailDesc = detailedDescriptions[c];
+            lab.room = rooms[c];
+            lab.labStatsCode = labStatsCodes[c];
+            lab.numAvailCapacity = availableCapacities[c];
+            
+            [labInfoList addObject:lab];
+        }
+        
+        for(CAVLab *currentLab in currentLabs){
+            bool labStillExists = false;
+            
+            NSInteger k = 0;
+            NSInteger size = [labStatsCodes count];
+            for(; k < size; k++){
+                if([labStatsCodes[k] isEqualToString:currentLab.labStatsCode]){
+                    labStillExists = true;
+                    break;
+                }
+            }
+            
+            if(!labStillExists){
+                [cavStoreManager.managedObjectContext deleteObject:currentLab];
+            }
+        }
+        
+        NSError *error;
         [cavStoreManager.managedObjectContext save:&error];
     }
     else{
-     //   NSPredicate *allLabs = [NSPredicate predicateWithFormat:@"class == %@", [[[CAVLab alloc]init] class]];
-        
+        if(currentLabs && [currentLabs count] > 0){
+            [labInfoList addObjectsFromArray:currentLabs];
+        }
     }
-    
-    /*
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity =
-    [NSEntityDescription entityForName:@"CAVLab"
-                inManagedObjectContext:cavStoreManager.managedObjectContext];
-    
-    NSPredicate *getAllLabsPredicate = [NSPredicate predicateWithFormat:@"class == %@", [[[CAVLab alloc]init] class]];
-    [request setPredicate:getAllLabsPredicate];
-    [request setEntity:entity];
-    
-    NSArray *labs = [cavStoreManager.managedObjectContext executeFetchRequest:request error:&error];
-    if(labs != nil){
-        NSLog(@"%lu", (unsigned long)[labs count]);
-    }
-    else{
-        NSLog(@"%@", [error description]);
-    }
-     */
     
     return labInfoList;
 }

@@ -10,4 +10,5 @@ import Foundation
 
 public class CAVPointAnnotation: ZSAnnotation{
     public var numItems = 0;
+    public var labStatsCode = "";
 }

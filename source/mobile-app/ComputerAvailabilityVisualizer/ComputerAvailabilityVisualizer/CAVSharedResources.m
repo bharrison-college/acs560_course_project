@@ -25,7 +25,4 @@ static CAVSharedResources *sharedResources = nil; // Static instance of the sing
     return sharedResources;
 }
 
-- (void)print{
-    NSLog(@"hellow rold ");
-}
 @end

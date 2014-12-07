@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface CAVSharedResources : NSObject
-@property (nonatomic, strong)UINavigationController *mainNavController;
+@property (nonatomic, strong)NSString *currentDetailViewLabStatsCode;
 
 +(id)getSharedResources;
-
-- (void)print;
 
 @end

@@ -46,7 +46,7 @@
         <relationship name="lab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CAVLab" inverseName="particle" inverseEntity="CAVLab" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CAVLab" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="CAVLab" positionX="-63" positionY="-18" width="128" height="195"/>
         <element name="CAVParticle" positionX="-54" positionY="144" width="128" height="508"/>
     </elements>
 </model>

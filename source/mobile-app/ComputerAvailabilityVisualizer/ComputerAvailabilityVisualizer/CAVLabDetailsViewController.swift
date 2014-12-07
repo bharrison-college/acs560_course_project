@@ -16,14 +16,42 @@ class CAVLabDetailsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        var currentLab:CAVLab
+        
+        let cavStoreManager = CAVStoreManager.getSharedStoreManager() as? CAVStoreManager;
+        
+        let entityDescription = NSEntityDescription.entityForName("CAVLab", inManagedObjectContext: cavStoreManager!.managedObjectContext)
+        let request = NSFetchRequest();
+        
+        let sharedResources = CAVSharedResources.getSharedResources() as CAVSharedResources
+        let searchForLabPredicate = NSPredicate(format: "labStatsCode == %@", sharedResources.currentDetailViewLabStatsCode)
+        
+        request.entity = entityDescription
+        request.predicate = searchForLabPredicate
+        
+        let error1 = NSErrorPointer();
+        let searchForLabResult = cavStoreManager?.managedObjectContext.executeFetchRequest(request, error: error1) as? [CAVLab]
+    
+        if(searchForLabResult == nil){
+            /* Error occurred */
+        }
+        else{
+            currentLab = searchForLabResult![0]
+            println("\(currentLab.building)")
+        }
+    }
 
     @IBAction func barButtonTapped(sender: AnyObject) {
+        let sharedResources = CAVSharedResources.getSharedResources() as CAVSharedResources
+        sharedResources.currentDetailViewLabStatsCode = nil
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

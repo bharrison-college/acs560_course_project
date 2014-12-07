@@ -69,7 +69,8 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
             annotation.title = "\(lab.building) \(lab.room)"
             annotation.type = ZSPinAnnotationTypeStandard
             annotation.subtitle = "Computers Open: \(lab.numAvailCapacity)"
-            annotation.numItems = lab.numAvailCapacity.integerValue;
+            annotation.numItems = lab.numAvailCapacity.integerValue
+            annotation.labStatsCode = lab.labStatsCode
             
             mapView.addAnnotation(annotation)
             self.labAnnotations.append(annotation)
@@ -148,13 +149,8 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
         return color
     }
     
-    func pressed(sender: UIButton!) {
-        performSegueWithIdentifier("showDetails", sender: self)
-    }
-    
     public func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == annotationView.rightCalloutAccessoryView {
-            var sharedResources: AnyObject! = CAVSharedResources.getSharedResources()
             
             /*
             let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
@@ -162,8 +158,10 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
             self.presentViewController(vc, animated: true, completion: nil)
             */
 
+            var annotation = annotationView.annotation as? CAVPointAnnotation;
+            let sharedResources = CAVSharedResources.getSharedResources() as CAVSharedResources
+            sharedResources.currentDetailViewLabStatsCode = annotation?.labStatsCode
             self.performSegueWithIdentifier("showDetails", sender: self)
-            println("Disclosure Pressed!")
         }
     }
     
