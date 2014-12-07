@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CAVStoreManager.h"
+#import "CAVLab.h"
+#import "CAVParticle.h"
 
 @interface CAVDownloadManager : UIViewController
 + (id)getSharedDownloadManager;
-- (NSDictionary*)retrieveLabInformation;
+- (NSMutableArray *)retrieveLabInformation;
 @end

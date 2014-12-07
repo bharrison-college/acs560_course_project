@@ -25,12 +25,17 @@
 		0662CB041A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB021A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld */; };
 		0662CB411A33A3A50052CDFC /* CAVParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB401A33A3A50052CDFC /* CAVParticle.m */; };
 		0662CB441A33A4F10052CDFC /* CAVLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB431A33A4F10052CDFC /* CAVLab.m */; };
+		0662CB4A1A33AC820052CDFC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB491A33AC820052CDFC /* CoreData.framework */; };
+		0662CB4F1A349C780052CDFC /* CAVPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB4E1A349C780052CDFC /* CAVPointAnnotation.swift */; };
+		0662CB6E1A34A24F0052CDFC /* ZSAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB6D1A34A24F0052CDFC /* ZSAnnotation.m */; };
+		0662CB711A34A25A0052CDFC /* ZSPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB701A34A25A0052CDFC /* ZSPinAnnotation.m */; };
+		0662CB731A34A4090052CDFC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB721A34A4090052CDFC /* QuartzCore.framework */; };
+		0662CB751A34A4130052CDFC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB741A34A4130052CDFC /* CoreImage.framework */; };
 		06A099B81A06CBE1008E03C7 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */; };
 		06A099BC1A06CC3C008E03C7 /* CAVMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */; };
 		06A099BE1A06CC8B008E03C7 /* CAVLabAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */; };
-		06A099C11A06CCA4008E03C7 /* CAVParticleAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099C01A06CCA4008E03C7 /* CAVParticleAttributes.m */; };
 		06A099C31A06CCC6008E03C7 /* CAVLabDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */; };
-		06A099C91A06CD03008E03C7 /* CAVSharedLabsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099C81A06CD03008E03C7 /* CAVSharedLabsStore.m */; };
+		06A099C91A06CD03008E03C7 /* CAVSharedResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099C81A06CD03008E03C7 /* CAVSharedResources.m */; };
 		06A099CC1A06CD1F008E03C7 /* CAVSharedAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */; };
 		06A099CF1A06CD41008E03C7 /* CAVSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099CE1A06CD41008E03C7 /* CAVSceneViewController.m */; };
 		06A099D21A06CD80008E03C7 /* CAVInteractionLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099D11A06CD80008E03C7 /* CAVInteractionLayerViewController.m */; };
@@ -81,15 +86,21 @@
 		0662CB401A33A3A50052CDFC /* CAVParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVParticle.m; sourceTree = "<group>"; };
 		0662CB421A33A4F10052CDFC /* CAVLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVLab.h; sourceTree = "<group>"; };
 		0662CB431A33A4F10052CDFC /* CAVLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVLab.m; sourceTree = "<group>"; };
+		0662CB491A33AC820052CDFC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0662CB4E1A349C780052CDFC /* CAVPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAVPointAnnotation.swift; path = ../CAVPointAnnotation.swift; sourceTree = "<group>"; };
+		0662CB6C1A34A24F0052CDFC /* ZSAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSAnnotation.h; sourceTree = "<group>"; };
+		0662CB6D1A34A24F0052CDFC /* ZSAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSAnnotation.m; sourceTree = "<group>"; };
+		0662CB6F1A34A25A0052CDFC /* ZSPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSPinAnnotation.h; sourceTree = "<group>"; };
+		0662CB701A34A25A0052CDFC /* ZSPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSPinAnnotation.m; sourceTree = "<group>"; };
+		0662CB721A34A4090052CDFC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0662CB741A34A4130052CDFC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		06A099BA1A06CC3C008E03C7 /* ComputerAvailabilityVisualizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerAvailabilityVisualizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVMapViewController.swift; sourceTree = "<group>"; };
 		06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVLabAnnotationView.swift; sourceTree = "<group>"; };
-		06A099BF1A06CCA4008E03C7 /* CAVParticleAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVParticleAttributes.h; sourceTree = "<group>"; };
-		06A099C01A06CCA4008E03C7 /* CAVParticleAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVParticleAttributes.m; sourceTree = "<group>"; };
 		06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVLabDetailsViewController.swift; sourceTree = "<group>"; };
-		06A099C71A06CD03008E03C7 /* CAVSharedLabsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSharedLabsStore.h; sourceTree = "<group>"; };
-		06A099C81A06CD03008E03C7 /* CAVSharedLabsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSharedLabsStore.m; sourceTree = "<group>"; };
+		06A099C71A06CD03008E03C7 /* CAVSharedResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSharedResources.h; sourceTree = "<group>"; };
+		06A099C81A06CD03008E03C7 /* CAVSharedResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSharedResources.m; sourceTree = "<group>"; };
 		06A099CA1A06CD1F008E03C7 /* CAVSharedAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSharedAlertManager.h; sourceTree = "<group>"; };
 		06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSharedAlertManager.m; sourceTree = "<group>"; };
 		06A099CD1A06CD41008E03C7 /* CAVSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSceneViewController.h; sourceTree = "<group>"; };
@@ -110,6 +121,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0662CB751A34A4130052CDFC /* CoreImage.framework in Frameworks */,
+				0662CB731A34A4090052CDFC /* QuartzCore.framework in Frameworks */,
+				0662CB4A1A33AC820052CDFC /* CoreData.framework in Frameworks */,
 				06A099DB1A06D470008E03C7 /* MapKit.framework in Frameworks */,
 				06A099DA1A06D38B008E03C7 /* OpenGLES.framework in Frameworks */,
 				06A099D81A06D354008E03C7 /* GLKit.framework in Frameworks */,
@@ -154,6 +168,9 @@
 		063223AB1A06C563003EDF35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0662CB741A34A4130052CDFC /* CoreImage.framework */,
+				0662CB721A34A4090052CDFC /* QuartzCore.framework */,
+				0662CB491A33AC820052CDFC /* CoreData.framework */,
 				06A099D91A06D38B008E03C7 /* OpenGLES.framework */,
 				06A099D71A06D354008E03C7 /* GLKit.framework */,
 				06A099D31A06D1C5008E03C7 /* MapKit.framework */,
@@ -168,16 +185,16 @@
 		063223B21A06C563003EDF35 /* ComputerAvailabilityVisualizer */ = {
 			isa = PBXGroup;
 			children = (
+				0662CB501A34A19F0052CDFC /* lib */,
 				06A099B91A06CBF7008E03C7 /* storyboards */,
 				063223BB1A06C563003EDF35 /* AppDelegate.h */,
 				063223BC1A06C563003EDF35 /* AppDelegate.m */,
+				0662CB4E1A349C780052CDFC /* CAVPointAnnotation.swift */,
 				06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */,
 				06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */,
-				06A099BF1A06CCA4008E03C7 /* CAVParticleAttributes.h */,
-				06A099C01A06CCA4008E03C7 /* CAVParticleAttributes.m */,
 				06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */,
-				06A099C71A06CD03008E03C7 /* CAVSharedLabsStore.h */,
-				06A099C81A06CD03008E03C7 /* CAVSharedLabsStore.m */,
+				06A099C71A06CD03008E03C7 /* CAVSharedResources.h */,
+				06A099C81A06CD03008E03C7 /* CAVSharedResources.m */,
 				06A099CA1A06CD1F008E03C7 /* CAVSharedAlertManager.h */,
 				06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */,
 				06A099CD1A06CD41008E03C7 /* CAVSceneViewController.h */,
@@ -233,6 +250,25 @@
 				063223D71A06C563003EDF35 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0662CB501A34A19F0052CDFC /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				0662CB511A34A1CB0052CDFC /* ZSPinAnnotation */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		0662CB511A34A1CB0052CDFC /* ZSPinAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				0662CB6F1A34A25A0052CDFC /* ZSPinAnnotation.h */,
+				0662CB701A34A25A0052CDFC /* ZSPinAnnotation.m */,
+				0662CB6C1A34A24F0052CDFC /* ZSAnnotation.h */,
+				0662CB6D1A34A24F0052CDFC /* ZSAnnotation.m */,
+			);
+			path = ZSPinAnnotation;
 			sourceTree = "<group>";
 		};
 		06A099B91A06CBF7008E03C7 /* storyboards */ = {
@@ -344,7 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A099BC1A06CC3C008E03C7 /* CAVMapViewController.swift in Sources */,
-				06A099C11A06CCA4008E03C7 /* CAVParticleAttributes.m in Sources */,
+				0662CB4F1A349C780052CDFC /* CAVPointAnnotation.swift in Sources */,
 				063223B91A06C563003EDF35 /* main.m in Sources */,
 				06C54A6F1A103C4E00BF2EFB /* particles-es2.0.f in Sources */,
 				06C54A731A103C8B00BF2EFB /* particles-es3.0.f in Sources */,
@@ -353,14 +389,16 @@
 				0662CACC1A339A7B0052CDFC /* CAVStoreManager.m in Sources */,
 				06A099BE1A06CC8B008E03C7 /* CAVLabAnnotationView.swift in Sources */,
 				0662CAC61A3382350052CDFC /* CAVDownloadManager.m in Sources */,
-				06A099C91A06CD03008E03C7 /* CAVSharedLabsStore.m in Sources */,
+				06A099C91A06CD03008E03C7 /* CAVSharedResources.m in Sources */,
 				0662CB041A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld in Sources */,
 				063223BD1A06C563003EDF35 /* AppDelegate.m in Sources */,
+				0662CB6E1A34A24F0052CDFC /* ZSAnnotation.m in Sources */,
 				0662CB411A33A3A50052CDFC /* CAVParticle.m in Sources */,
 				06A099C31A06CCC6008E03C7 /* CAVLabDetailsViewController.swift in Sources */,
 				06A099CC1A06CD1F008E03C7 /* CAVSharedAlertManager.m in Sources */,
 				0662CB441A33A4F10052CDFC /* CAVLab.m in Sources */,
 				063223C61A06C563003EDF35 /* CAVViewController.m in Sources */,
+				0662CB711A34A25A0052CDFC /* ZSPinAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

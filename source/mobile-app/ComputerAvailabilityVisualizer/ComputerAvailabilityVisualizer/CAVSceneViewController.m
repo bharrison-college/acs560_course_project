@@ -28,14 +28,13 @@
     // Do any additional setup after loading the view.
     
     _mapViewController = [[CAVMapViewController alloc] initWithMapView:self.mapView];
-    
-    CAVDownloadManager *downloadManager = [CAVDownloadManager getSharedDownloadManager];
-    NSDictionary *dictionary = [downloadManager retrieveLabInformation];
+
     //_interactivityViewController = [[CAVInteractionLayerViewController alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
+    CAVDownloadManager *downloadManager = [CAVDownloadManager getSharedDownloadManager];
+    [downloadManager retrieveLabInformation];
 }
 
 - (void)didReceiveMemoryWarning {

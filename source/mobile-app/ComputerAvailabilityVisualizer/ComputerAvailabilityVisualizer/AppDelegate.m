@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    
+    self.window.rootViewController = [storyboard instantiateInitialViewController];
+    [self.window makeKeyAndVisible];
+    
+    CAVSharedResources *sharedResources = [CAVSharedResources getSharedResources];
+    sharedResources.mainNavController = (UINavigationController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    
     return YES;
 }
 
