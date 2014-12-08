@@ -10,43 +10,8 @@
         <attribute name="numInUse" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="numOff" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="particle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CAVParticle" inverseName="lab" inverseEntity="CAVParticle" syncable="YES"/>
-    </entity>
-    <entity name="CAVParticle" syncable="YES">
-        <attribute name="birthRate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="blueColor" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="emissionAngle" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="emissionAngleRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="greenColor" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="lifetime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="lifetimeRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="numParticlesToEmit" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="redColor" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="rotation" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="rotationRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="rotationSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="scale" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="scaleRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="scaleSequence" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="scaleSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="speedRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="xAcceleration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="xPosition" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="xPositionRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="xPositionSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="yAcceleration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="yPosition" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="yPositionRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="yPositionSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="zAcceleration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="zPosition" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="zPositionRange" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="zPositionSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="lab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CAVLab" inverseName="particle" inverseEntity="CAVLab" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CAVLab" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="CAVParticle" positionX="-54" positionY="144" width="128" height="508"/>
+        <element name="CAVLab" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

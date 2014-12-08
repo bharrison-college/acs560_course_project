@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <SpriteKit/SpriteKit.h>
+#import "CAVPointAnnotationView.h"
+
 
 @interface CAVSharedResources : NSObject
 @property (nonatomic, strong)NSString *currentDetailViewLabStatsCode;
+@property (nonatomic)CLLocationDistance currentDistanceToLab;
 
 +(id)getSharedResources;
 

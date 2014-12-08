@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CAVStoreManager.h"
 #import "CAVLab.h"
-#import "CAVParticle.h"
 
 @interface CAVDownloadManager : UIViewController
 @property (atomic, strong)NSMutableArray *labInfoList;

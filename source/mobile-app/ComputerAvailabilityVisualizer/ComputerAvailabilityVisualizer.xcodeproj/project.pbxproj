@@ -13,7 +13,6 @@
 		063223B71A06C563003EDF35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 063223B51A06C563003EDF35 /* InfoPlist.strings */; };
 		063223B91A06C563003EDF35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 063223B81A06C563003EDF35 /* main.m */; };
 		063223BD1A06C563003EDF35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 063223BC1A06C563003EDF35 /* AppDelegate.m */; };
-		063223C61A06C563003EDF35 /* CAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063223C51A06C563003EDF35 /* CAVViewController.m */; };
 		063223C81A06C563003EDF35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 063223C71A06C563003EDF35 /* Images.xcassets */; };
 		063223CF1A06C563003EDF35 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063223CE1A06C563003EDF35 /* XCTest.framework */; };
 		063223D01A06C563003EDF35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063223AC1A06C563003EDF35 /* Foundation.framework */; };
@@ -23,7 +22,6 @@
 		0662CAC61A3382350052CDFC /* CAVDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CAC51A3382350052CDFC /* CAVDownloadManager.m */; };
 		0662CACC1A339A7B0052CDFC /* CAVStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CACB1A339A7B0052CDFC /* CAVStoreManager.m */; };
 		0662CB041A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB021A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld */; };
-		0662CB411A33A3A50052CDFC /* CAVParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB401A33A3A50052CDFC /* CAVParticle.m */; };
 		0662CB441A33A4F10052CDFC /* CAVLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB431A33A4F10052CDFC /* CAVLab.m */; };
 		0662CB4A1A33AC820052CDFC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB491A33AC820052CDFC /* CoreData.framework */; };
 		0662CB4F1A349C780052CDFC /* CAVPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB4E1A349C780052CDFC /* CAVPointAnnotation.swift */; };
@@ -32,21 +30,25 @@
 		0662CB731A34A4090052CDFC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB721A34A4090052CDFC /* QuartzCore.framework */; };
 		0662CB751A34A4130052CDFC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB741A34A4130052CDFC /* CoreImage.framework */; };
 		0662CB781A3507790052CDFC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662CB771A3507790052CDFC /* Reachability.m */; };
+		0662CB801A3533040052CDFC /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0662CB7F1A3533040052CDFC /* SpriteKit.framework */; };
+		0662CBB81A3542430052CDFC /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0662CBB71A3542430052CDFC /* spark.png */; };
 		06A099B81A06CBE1008E03C7 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */; };
 		06A099BC1A06CC3C008E03C7 /* CAVMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */; };
-		06A099BE1A06CC8B008E03C7 /* CAVLabAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */; };
 		06A099C31A06CCC6008E03C7 /* CAVLabDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */; };
 		06A099C91A06CD03008E03C7 /* CAVSharedResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099C81A06CD03008E03C7 /* CAVSharedResources.m */; };
 		06A099CC1A06CD1F008E03C7 /* CAVSharedAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */; };
-		06A099CF1A06CD41008E03C7 /* CAVSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099CE1A06CD41008E03C7 /* CAVSceneViewController.m */; };
-		06A099D21A06CD80008E03C7 /* CAVInteractionLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A099D11A06CD80008E03C7 /* CAVInteractionLayerViewController.m */; };
 		06A099D81A06D354008E03C7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A099D71A06D354008E03C7 /* GLKit.framework */; };
 		06A099DA1A06D38B008E03C7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A099D91A06D38B008E03C7 /* OpenGLES.framework */; };
 		06A099DB1A06D470008E03C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A099D31A06D1C5008E03C7 /* MapKit.framework */; };
-		06C54A6D1A103C0E00BF2EFB /* particles-es2.0.v in Resources */ = {isa = PBXBuildFile; fileRef = 06C54A6C1A103C0E00BF2EFB /* particles-es2.0.v */; };
-		06C54A6F1A103C4E00BF2EFB /* particles-es2.0.f in Sources */ = {isa = PBXBuildFile; fileRef = 06C54A6E1A103C4E00BF2EFB /* particles-es2.0.f */; };
-		06C54A711A103C8000BF2EFB /* particles-es3.0.v in Resources */ = {isa = PBXBuildFile; fileRef = 06C54A701A103C8000BF2EFB /* particles-es3.0.v */; };
-		06C54A731A103C8B00BF2EFB /* particles-es3.0.f in Sources */ = {isa = PBXBuildFile; fileRef = 06C54A721A103C8B00BF2EFB /* particles-es3.0.f */; };
+		06F3D29C1A36238400CD83FA /* CAVPinParticleEmitterFull.sks in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D2981A36238400CD83FA /* CAVPinParticleEmitterFull.sks */; };
+		06F3D29D1A36238400CD83FA /* CAVPinParticleEmitterAvail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D2991A36238400CD83FA /* CAVPinParticleEmitterAvail.sks */; };
+		06F3D29E1A36238400CD83FA /* CAVPinParticleEmitterBusy.sks in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D29A1A36238400CD83FA /* CAVPinParticleEmitterBusy.sks */; };
+		06F3D29F1A36238400CD83FA /* CAVPinParticleEmitterCrowded.sks in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D29B1A36238400CD83FA /* CAVPinParticleEmitterCrowded.sks */; };
+		06FA6DAD1A355BF000B78188 /* CAVSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FA6DAC1A355BF000B78188 /* CAVSceneView.m */; };
+		06FA6DB01A358A8E00B78188 /* CAVPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FA6DAF1A358A8E00B78188 /* CAVPointAnnotationView.m */; };
+		06FA6DB21A35BE2300B78188 /* IPFW.png in Resources */ = {isa = PBXBuildFile; fileRef = 06FA6DB11A35BE2200B78188 /* IPFW.png */; };
+		06FA6DB61A35E47200B78188 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 06FA6DB41A35E47200B78188 /* key.png */; };
+		06FA6DB71A35E47200B78188 /* arrow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06FA6DB51A35E47200B78188 /* arrow.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +72,6 @@
 		063223BA1A06C563003EDF35 /* ComputerAvailabilityVisualizer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerAvailabilityVisualizer-Prefix.pch"; sourceTree = "<group>"; };
 		063223BB1A06C563003EDF35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		063223BC1A06C563003EDF35 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		063223C41A06C563003EDF35 /* CAVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVViewController.h; sourceTree = "<group>"; };
-		063223C51A06C563003EDF35 /* CAVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVViewController.m; sourceTree = "<group>"; };
 		063223C71A06C563003EDF35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		063223CD1A06C563003EDF35 /* ComputerAvailabilityVisualizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerAvailabilityVisualizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		063223CE1A06C563003EDF35 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,8 +83,6 @@
 		0662CACA1A339A7B0052CDFC /* CAVStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVStoreManager.h; sourceTree = "<group>"; };
 		0662CACB1A339A7B0052CDFC /* CAVStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVStoreManager.m; sourceTree = "<group>"; };
 		0662CB031A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComputerAvailabilityVisualizer.xcdatamodel; sourceTree = "<group>"; };
-		0662CB3F1A33A3A50052CDFC /* CAVParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVParticle.h; sourceTree = "<group>"; };
-		0662CB401A33A3A50052CDFC /* CAVParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVParticle.m; sourceTree = "<group>"; };
 		0662CB421A33A4F10052CDFC /* CAVLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVLab.h; sourceTree = "<group>"; };
 		0662CB431A33A4F10052CDFC /* CAVLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVLab.m; sourceTree = "<group>"; };
 		0662CB491A33AC820052CDFC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -97,26 +95,30 @@
 		0662CB741A34A4130052CDFC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		0662CB761A3507790052CDFC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0662CB771A3507790052CDFC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0662CB7F1A3533040052CDFC /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		0662CBB71A3542430052CDFC /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		06A099BA1A06CC3C008E03C7 /* ComputerAvailabilityVisualizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ComputerAvailabilityVisualizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVMapViewController.swift; sourceTree = "<group>"; };
-		06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVLabAnnotationView.swift; sourceTree = "<group>"; };
 		06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVLabDetailsViewController.swift; sourceTree = "<group>"; };
 		06A099C71A06CD03008E03C7 /* CAVSharedResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSharedResources.h; sourceTree = "<group>"; };
 		06A099C81A06CD03008E03C7 /* CAVSharedResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSharedResources.m; sourceTree = "<group>"; };
 		06A099CA1A06CD1F008E03C7 /* CAVSharedAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSharedAlertManager.h; sourceTree = "<group>"; };
 		06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSharedAlertManager.m; sourceTree = "<group>"; };
-		06A099CD1A06CD41008E03C7 /* CAVSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSceneViewController.h; sourceTree = "<group>"; };
-		06A099CE1A06CD41008E03C7 /* CAVSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSceneViewController.m; sourceTree = "<group>"; };
-		06A099D01A06CD80008E03C7 /* CAVInteractionLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVInteractionLayerViewController.h; sourceTree = "<group>"; };
-		06A099D11A06CD80008E03C7 /* CAVInteractionLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVInteractionLayerViewController.m; sourceTree = "<group>"; };
 		06A099D31A06D1C5008E03C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06A099D71A06D354008E03C7 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		06A099D91A06D38B008E03C7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		06C54A6C1A103C0E00BF2EFB /* particles-es2.0.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "particles-es2.0.v"; sourceTree = "<group>"; };
-		06C54A6E1A103C4E00BF2EFB /* particles-es2.0.f */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.fortran; path = "particles-es2.0.f"; sourceTree = "<group>"; };
-		06C54A701A103C8000BF2EFB /* particles-es3.0.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "particles-es3.0.v"; sourceTree = "<group>"; };
-		06C54A721A103C8B00BF2EFB /* particles-es3.0.f */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.fortran; path = "particles-es3.0.f"; sourceTree = "<group>"; };
+		06F3D2981A36238400CD83FA /* CAVPinParticleEmitterFull.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CAVPinParticleEmitterFull.sks; sourceTree = "<group>"; };
+		06F3D2991A36238400CD83FA /* CAVPinParticleEmitterAvail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CAVPinParticleEmitterAvail.sks; sourceTree = "<group>"; };
+		06F3D29A1A36238400CD83FA /* CAVPinParticleEmitterBusy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CAVPinParticleEmitterBusy.sks; sourceTree = "<group>"; };
+		06F3D29B1A36238400CD83FA /* CAVPinParticleEmitterCrowded.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CAVPinParticleEmitterCrowded.sks; sourceTree = "<group>"; };
+		06FA6DAB1A355BF000B78188 /* CAVSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVSceneView.h; sourceTree = "<group>"; };
+		06FA6DAC1A355BF000B78188 /* CAVSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVSceneView.m; sourceTree = "<group>"; };
+		06FA6DAE1A358A8E00B78188 /* CAVPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAVPointAnnotationView.h; sourceTree = "<group>"; };
+		06FA6DAF1A358A8E00B78188 /* CAVPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAVPointAnnotationView.m; sourceTree = "<group>"; };
+		06FA6DB11A35BE2200B78188 /* IPFW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IPFW.png; sourceTree = "<group>"; };
+		06FA6DB41A35E47200B78188 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		06FA6DB51A35E47200B78188 /* arrow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = arrow.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0662CB801A3533040052CDFC /* SpriteKit.framework in Frameworks */,
 				0662CB751A34A4130052CDFC /* CoreImage.framework in Frameworks */,
 				0662CB731A34A4090052CDFC /* QuartzCore.framework in Frameworks */,
 				0662CB4A1A33AC820052CDFC /* CoreData.framework in Frameworks */,
@@ -171,6 +174,7 @@
 		063223AB1A06C563003EDF35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0662CB7F1A3533040052CDFC /* SpriteKit.framework */,
 				0662CB741A34A4130052CDFC /* CoreImage.framework */,
 				0662CB721A34A4090052CDFC /* QuartzCore.framework */,
 				0662CB491A33AC820052CDFC /* CoreData.framework */,
@@ -193,8 +197,11 @@
 				063223BB1A06C563003EDF35 /* AppDelegate.h */,
 				063223BC1A06C563003EDF35 /* AppDelegate.m */,
 				0662CB4E1A349C780052CDFC /* CAVPointAnnotation.swift */,
+				06FA6DAE1A358A8E00B78188 /* CAVPointAnnotationView.h */,
+				06FA6DAF1A358A8E00B78188 /* CAVPointAnnotationView.m */,
 				06A099BB1A06CC3C008E03C7 /* CAVMapViewController.swift */,
-				06A099BD1A06CC8B008E03C7 /* CAVLabAnnotationView.swift */,
+				06FA6DAB1A355BF000B78188 /* CAVSceneView.h */,
+				06FA6DAC1A355BF000B78188 /* CAVSceneView.m */,
 				06A099C21A06CCC6008E03C7 /* CAVLabDetailsViewController.swift */,
 				06A099C71A06CD03008E03C7 /* CAVSharedResources.h */,
 				06A099C81A06CD03008E03C7 /* CAVSharedResources.m */,
@@ -202,18 +209,10 @@
 				0662CB771A3507790052CDFC /* Reachability.m */,
 				06A099CA1A06CD1F008E03C7 /* CAVSharedAlertManager.h */,
 				06A099CB1A06CD1F008E03C7 /* CAVSharedAlertManager.m */,
-				06A099CD1A06CD41008E03C7 /* CAVSceneViewController.h */,
-				06A099CE1A06CD41008E03C7 /* CAVSceneViewController.m */,
 				0662CAC41A3382350052CDFC /* CAVDownloadManager.h */,
 				0662CAC51A3382350052CDFC /* CAVDownloadManager.m */,
-				06A099D01A06CD80008E03C7 /* CAVInteractionLayerViewController.h */,
-				06A099D11A06CD80008E03C7 /* CAVInteractionLayerViewController.m */,
-				063223C41A06C563003EDF35 /* CAVViewController.h */,
-				063223C51A06C563003EDF35 /* CAVViewController.m */,
 				0662CACA1A339A7B0052CDFC /* CAVStoreManager.h */,
 				0662CACB1A339A7B0052CDFC /* CAVStoreManager.m */,
-				0662CB3F1A33A3A50052CDFC /* CAVParticle.h */,
-				0662CB401A33A3A50052CDFC /* CAVParticle.m */,
 				0662CB421A33A4F10052CDFC /* CAVLab.h */,
 				0662CB431A33A4F10052CDFC /* CAVLab.m */,
 				0662CB021A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld */,
@@ -227,14 +226,15 @@
 		063223B31A06C563003EDF35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				06F3D2981A36238400CD83FA /* CAVPinParticleEmitterFull.sks */,
+				06F3D2991A36238400CD83FA /* CAVPinParticleEmitterAvail.sks */,
+				06F3D29A1A36238400CD83FA /* CAVPinParticleEmitterBusy.sks */,
+				06F3D29B1A36238400CD83FA /* CAVPinParticleEmitterCrowded.sks */,
+				06FA6DB31A35BE2900B78188 /* images */,
 				063223B41A06C563003EDF35 /* ComputerAvailabilityVisualizer-Info.plist */,
 				063223B51A06C563003EDF35 /* InfoPlist.strings */,
 				063223B81A06C563003EDF35 /* main.m */,
 				063223BA1A06C563003EDF35 /* ComputerAvailabilityVisualizer-Prefix.pch */,
-				06C54A6C1A103C0E00BF2EFB /* particles-es2.0.v */,
-				06C54A6E1A103C4E00BF2EFB /* particles-es2.0.f */,
-				06C54A701A103C8000BF2EFB /* particles-es3.0.v */,
-				06C54A721A103C8B00BF2EFB /* particles-es3.0.f */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -282,6 +282,17 @@
 				06A099B71A06CBE1008E03C7 /* Storyboard.storyboard */,
 			);
 			name = storyboards;
+			sourceTree = "<group>";
+		};
+		06FA6DB31A35BE2900B78188 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0662CBB71A3542430052CDFC /* spark.png */,
+				06FA6DB41A35E47200B78188 /* key.png */,
+				06FA6DB51A35E47200B78188 /* arrow.gif */,
+				06FA6DB11A35BE2200B78188 /* IPFW.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,11 +372,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06C54A711A103C8000BF2EFB /* particles-es3.0.v in Resources */,
+				06F3D29E1A36238400CD83FA /* CAVPinParticleEmitterBusy.sks in Resources */,
+				06FA6DB71A35E47200B78188 /* arrow.gif in Resources */,
+				06FA6DB21A35BE2300B78188 /* IPFW.png in Resources */,
 				063223C81A06C563003EDF35 /* Images.xcassets in Resources */,
-				06C54A6D1A103C0E00BF2EFB /* particles-es2.0.v in Resources */,
+				0662CBB81A3542430052CDFC /* spark.png in Resources */,
+				06FA6DB61A35E47200B78188 /* key.png in Resources */,
+				06F3D29C1A36238400CD83FA /* CAVPinParticleEmitterFull.sks in Resources */,
+				06F3D29F1A36238400CD83FA /* CAVPinParticleEmitterCrowded.sks in Resources */,
 				063223B71A06C563003EDF35 /* InfoPlist.strings in Resources */,
 				06A099B81A06CBE1008E03C7 /* Storyboard.storyboard in Resources */,
+				06F3D29D1A36238400CD83FA /* CAVPinParticleEmitterAvail.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,24 +403,19 @@
 			files = (
 				06A099BC1A06CC3C008E03C7 /* CAVMapViewController.swift in Sources */,
 				0662CB4F1A349C780052CDFC /* CAVPointAnnotation.swift in Sources */,
+				06FA6DAD1A355BF000B78188 /* CAVSceneView.m in Sources */,
+				06FA6DB01A358A8E00B78188 /* CAVPointAnnotationView.m in Sources */,
 				063223B91A06C563003EDF35 /* main.m in Sources */,
-				06C54A6F1A103C4E00BF2EFB /* particles-es2.0.f in Sources */,
-				06C54A731A103C8B00BF2EFB /* particles-es3.0.f in Sources */,
-				06A099CF1A06CD41008E03C7 /* CAVSceneViewController.m in Sources */,
-				06A099D21A06CD80008E03C7 /* CAVInteractionLayerViewController.m in Sources */,
 				0662CACC1A339A7B0052CDFC /* CAVStoreManager.m in Sources */,
-				06A099BE1A06CC8B008E03C7 /* CAVLabAnnotationView.swift in Sources */,
 				0662CAC61A3382350052CDFC /* CAVDownloadManager.m in Sources */,
 				0662CB781A3507790052CDFC /* Reachability.m in Sources */,
 				06A099C91A06CD03008E03C7 /* CAVSharedResources.m in Sources */,
 				0662CB041A339B6D0052CDFC /* ComputerAvailabilityVisualizer.xcdatamodeld in Sources */,
 				063223BD1A06C563003EDF35 /* AppDelegate.m in Sources */,
 				0662CB6E1A34A24F0052CDFC /* ZSAnnotation.m in Sources */,
-				0662CB411A33A3A50052CDFC /* CAVParticle.m in Sources */,
 				06A099C31A06CCC6008E03C7 /* CAVLabDetailsViewController.swift in Sources */,
 				06A099CC1A06CD1F008E03C7 /* CAVSharedAlertManager.m in Sources */,
 				0662CB441A33A4F10052CDFC /* CAVLab.m in Sources */,
-				063223C61A06C563003EDF35 /* CAVViewController.m in Sources */,
 				0662CB711A34A25A0052CDFC /* ZSPinAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,18 @@ import UIKit
 class CAVLabDetailsViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
 
+    @IBOutlet weak var buildingLabel: UILabel!
+    
+    @IBOutlet weak var roomLabel: UILabel!
+    
+    @IBOutlet weak var totalCompLabel: UILabel!
+    @IBOutlet weak var availCompLabel: UILabel!
+    @IBOutlet weak var inUseCompLabel: UILabel!
+    @IBOutlet weak var offlineCompLabel: UILabel!
+    @IBOutlet weak var labDescLabel: UILabel!
+    
+    @IBOutlet weak var distanceToLabLabel: UILabel!
+    @IBOutlet weak var titleBarLabel: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,12 +53,21 @@ class CAVLabDetailsViewController: UIViewController {
         let searchForLabResult = cavStoreManager?.managedObjectContext.executeFetchRequest(request, error: error1) as? [CAVLab]
     
         if(searchForLabResult == nil){
-            /* Error occurred */
+            println("Error: data source may be corrupt.")
         }
-        else{
-            currentLab = searchForLabResult![0]
-            println("\(currentLab.building)")
-        }
+
+        currentLab = searchForLabResult![0]
+        self.buildingLabel.text = currentLab.building
+        self.roomLabel.text = currentLab.room
+        self.totalCompLabel.text = "\(currentLab.numAvailCapacity.integerValue + currentLab.numInUse.integerValue + currentLab.numOff.integerValue)"
+        self.availCompLabel.text = "\(currentLab.numAvailCapacity)"
+        self.inUseCompLabel.text = "\(currentLab.numInUse)"
+        self.offlineCompLabel.text = "\(currentLab.numOff)"
+        self.labDescLabel.text = currentLab.detailDesc
+        self.titleBarLabel.title = "\(currentLab.building) Computer Lab Information"
+        self.distanceToLabLabel.text = "\(sharedResources.currentDistanceToLab) meters"
+        
+        self.labDescLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
     }
 
     @IBAction func barButtonTapped(sender: AnyObject) {

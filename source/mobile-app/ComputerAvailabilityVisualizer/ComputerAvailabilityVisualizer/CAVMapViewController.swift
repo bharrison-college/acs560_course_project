@@ -13,10 +13,12 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
     public let locationManager:CLLocationManager = CLLocationManager()
     private var labAnnotations: [AnyObject]! = [AnyObject]();
     private var timer: NSTimer = NSTimer();
+    private var particleEmitterIsOpen = true;
     private var isMapCurrentlyUpdating = false;
     private var reachability:Reachability = Reachability.reachabilityForInternetConnection();
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var particleView: CAVSceneView!
     
     private let latitude = 41.118
     private let longitude = -85.109528
@@ -33,12 +35,14 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
     
     public init(mapView: MKMapView){
         super.init()
-        
-        self.mapView = mapView;
     }
     
     private override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    override public func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        updateParticleEmitterView()
     }
     
     private func updateMapAnnotations(){
@@ -68,30 +72,30 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     override public func viewDidLoad() {
-        super.viewDidLoad()
-        
         self.locationManager.requestAlwaysAuthorization()
+        super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("reachabilityStatusChanged:"), name:kReachabilityChangedNotification , object: nil)
         self.reachability.startNotifier()
         
-        self.mapView.delegate = self
+        
+        mapView.delegate = self
         
         self.locationManager.requestAlwaysAuthorization()
         
-        self.mapView.delegate = self
+        mapView.delegate = self
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(self.latitudeDelta, self.longitudeDelta)
         var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.latitude, self.longitude)
         var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
         
-        self.mapView.removeAnnotations(self.labAnnotations)
+        mapView.removeAnnotations(self.labAnnotations)
         self.labAnnotations?.removeAll(keepCapacity: false)
         
         let sharedDownloadManager: AnyObject! = CAVDownloadManager.getSharedDownloadManager()
         sharedDownloadManager!.updateLabInformation()
         updateMapAnnotations()
         
-        self.mapView.mapType = MKMapType.Satellite;
+        mapView.mapType = MKMapType.Satellite;
         mapView.setRegion(theRegion, animated: true)
         // Do any additional setup after loading the view.
     }
@@ -99,6 +103,89 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
     func reachabilityStatusChanged(notification:NSNotification)
     {
         setUpdateTimerBasedOnReachability()
+    }
+    
+    private func createParticleEmitterScene() -> SKScene{
+        let currentScene = SKScene(size: self.particleView.bounds.size)
+        currentScene.scaleMode = SKSceneScaleMode.AspectFill
+        
+        let interfaceOrientation = UIApplication.sharedApplication().statusBarOrientation
+        if(interfaceOrientation == UIInterfaceOrientation.Portrait || interfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown){
+            var path:NSString = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterFull", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            var node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            var point = CGPointMake(55.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+        
+            path = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterBusy", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            point = CGPointMake(215.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+        
+            path = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterCrowded", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            point = CGPointMake(390.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+        
+            path = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterAvail", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            point = CGPointMake(585.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+        }
+        else if(interfaceOrientation == UIInterfaceOrientation.LandscapeLeft || interfaceOrientation == UIInterfaceOrientation.LandscapeRight){
+            var path:NSString = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterFull", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            var node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            var point = CGPointMake(180.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+            
+            path = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterBusy", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            point = CGPointMake(340.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+            
+            path = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterCrowded", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            point = CGPointMake(520.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+            
+            path = NSBundle.mainBundle().pathForResource("CAVPinParticleEmitterAvail", ofType: "sks")!
+            NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+            node =  NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SKEmitterNode
+            point = CGPointMake(715.0,  35.0)
+            node?.position = point
+            currentScene.addChild(node!)
+        }
+        
+        currentScene.backgroundColor = UIColor.clearColor()
+        currentScene.userInteractionEnabled = true
+        
+        return currentScene
+    }
+    
+    
+    public func mapViewWillStartRenderingMap(mapView: MKMapView!) {
+            updateParticleEmitterView()
+    }
+    
+    private func updateParticleEmitterView(){
+        let scene = createParticleEmitterScene()
+        self.particleView.userInteractionEnabled = true
+        self.particleView.allowsTransparency = true
+        self.particleView.presentScene(scene)
+        self.particleView.setNeedsDisplay()
     }
     
     private func setUpdateTimerBasedOnReachability(){
@@ -112,7 +199,7 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     public override func viewWillAppear(animated: Bool) {
-       setUpdateTimerBasedOnReachability()
+        setUpdateTimerBasedOnReachability()
     }
     
     public override func viewWillDisappear(animated: Bool) {
@@ -146,10 +233,10 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
         let cavAnnotation = annotation as CAVPointAnnotation
         
         let reuseId = "pin"
-        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? ZSPinAnnotation
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? CAVPointAnnotationView
         
         if pinView == nil {
-            pinView = ZSPinAnnotation(annotation: annotation, reuseIdentifier: reuseId)
+            pinView = CAVPointAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.annotationType = ZSPinAnnotationTypeStandard
             pinView!.canShowCallout = true
             pinView!.annotationColor = self.computePinColor(cavAnnotation.numItems)
@@ -159,20 +246,17 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
         }
         
         var imageView = UIImageView(frame: CGRectMake(0,0,50,50))
-        var image = UIImage()
-        
-        /*
-        var buttonImage = UIImage(named: "arrow.gif")
-        
+        var image = UIImage(named: "IPFW.png")
         imageView.image = image
         
-        var button   = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        var buttonImage = UIImage(named: "arrow.gif")
+        
+        var button   = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+        
         button.frame = CGRectMake(100, 100, 25, 25)
         button .setBackgroundImage(buttonImage, forState: UIControlState.Normal)
-        button.addTarget(self, action: "pressed:", forControlEvents: .TouchUpInside)
-        */
         
-        pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIButton
+        pinView!.rightCalloutAccessoryView = button
         pinView!.leftCalloutAccessoryView = imageView
         
         return pinView
@@ -199,16 +283,20 @@ public class CAVMapViewController: UIViewController, MKMapViewDelegate {
     
     public func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == annotationView.rightCalloutAccessoryView {
-            
-            /*
-            let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("testID") as UIViewController
-            self.presentViewController(vc, animated: true, completion: nil)
-            */
-
             var annotation = annotationView.annotation as? CAVPointAnnotation;
             let sharedResources = CAVSharedResources.getSharedResources() as CAVSharedResources
             sharedResources.currentDetailViewLabStatsCode = annotation?.labStatsCode
+            
+            let labLat = annotation?.coordinate.latitude
+            let labLong = annotation?.coordinate.longitude
+            let labAnnLoc = CLLocation(latitude: labLat!, longitude: labLong!)
+            
+            let userAnn = self.mapView.userLocation
+            let userLat = userAnn?.coordinate.latitude
+            let userLong = userAnn?.coordinate.longitude
+            let userAnnLoc = CLLocation(latitude: userLat!, longitude: userLong!)
+            
+           sharedResources.currentDistanceToLab = labAnnLoc.distanceFromLocation(userAnnLoc);
             self.performSegueWithIdentifier("showDetails", sender: self)
         }
     }
